@@ -1,0 +1,26 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: install webserver on ubuntu16 node
+    apt:
+      name: apache2
+      state: present
+    when: ansible_os_family =="Debian"
+
+  - name:  start webserver of ubuntu16
+    service:
+      name: apache2
+      state: started
+    when: ansible_os_family =="Debian"
+
+  - name: install webserver on amazan
+    yum:
+      name: httpd
+      state: present
+    when: ansible_os_family =="RedHat"
+  - name: start webserver of amazan
+    service:
+      name: httpd
+      state: started
+    when: ansible_os_family =="RedHat"
