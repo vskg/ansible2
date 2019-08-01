@@ -1,0 +1,15 @@
+---
+- hosts: webservers
+  become: yes
+  tasks:
+  - name: install java on ubuntu16 node
+    apt:
+      name: "{{ javaonubuntu }}" 
+      state: present
+    when: ansible_os_family =="Debian"
+
+  - name: install java on amazon node
+    yum:
+      name: "{{ javaonamazon }}"
+      state: present
+    when: ansible_os_family =="RedHat"
