@@ -1,0 +1,7 @@
+key: value
+
+webserveronUbuntu: apache2
+webserveronamazon: httpd
+
+javaonubuntu: openjdk-8-jre
+javaonamazon: java-1.8.0-openjdk
