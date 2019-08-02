@@ -8,7 +8,7 @@
   - name: display var1
     debug:
        msg: "{{var1}}"
-  -name: display var2
+  - name: display var2
   debug:
       msg: "{{var2}}"
       
