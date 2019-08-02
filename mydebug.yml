@@ -12,10 +12,10 @@
     apt: 
       name: git
       state: present
-    when: myresult.stderr !=""
+    when: myresult.stderr ==""
 
   - name: install tree
     apt:
       name: tree
       state: present
-    when: myresult.stderr ==""
+    when: myresult.stderr !=""
