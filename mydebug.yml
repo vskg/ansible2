@@ -12,10 +12,13 @@
     apt:
       name: git
       state: present
+  - name: apt clean cache
+    apt:
+      update_cache: yes   
     when: myresult.stderr==""
 
   - name: install tree
     apt:
       name: tree
       state: present
-    when: myresult.stderr !=""
+    when: myresult.stderr!=""
