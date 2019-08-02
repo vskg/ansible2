@@ -1,0 +1,16 @@
+---
+- hosts: webservers
+  become: yes
+  vars:
+    var1: devops
+    var2: aws
+  tasks:
+  - name: display var1
+    debug:
+       msg: "{{var1}}"
+  -name: display var2
+  debug:
+      msg: "{{var2}}"
+      
+
+   
