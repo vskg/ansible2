@@ -5,20 +5,17 @@
   - name: display hostname
     command: hostname -f
     register: myresult
-  - name: display result of above tasks
+  - name: display result of above task( host info)
     debug:
       msg: "{{myresult}}"
   - name: install git
-    apt:
+    apt: 
       name: git
       state: present
-  - name: apt clean cache
-    apt:
-      update_cache: yes   
-    when: myresult.stderr==""
+    when: myresult.stderr ==""
 
   - name: install tree
     apt:
       name: tree
       state: present
-    when: myresult.stderr!=""
+    when: myresult.stderr !=""
