@@ -9,8 +9,8 @@
     debug:
        msg: "{{var1}}"
   - name: display var2
-  debug:
-      msg: "{{var2}}"
+    debug:
+       msg: "{{var2}}"
       
 
    
