@@ -1,0 +1,19 @@
+---
+ - hosts: webservers
+   become: yes
+   tasks:
+   - include_tasks: myfile.yml
+   - name: install webservers on ubuntu
+     apt:
+       name: apache2
+       state: present
+
+   - name: start webservers
+     service:
+        name: apache2
+        state: started
+
+   - name: copy dynamic files into all ubuntu nodes
+     template:
+         src: myindex.j2
+         dest: /var/www/html/index.html      
