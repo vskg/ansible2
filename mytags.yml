@@ -1,21 +1,21 @@
 ---
- - hosts: all  
-   become: yes
-   tasks:
-     - name: install webserver       
-       apt:
-        name: apache2
-        state: present
-       tags: apache2
-     
-     - name: install git     
-       apt:
-        name: git
-        state: present
-       tags: git
+- hosts: webservers
+  become: yes
+  tasks:
+  - name: install webserver on ubuntu16 node
+    apt:
+      name: "{{ webserveronUbuntu }}"
+      state: present
+    when: ansible_os_family =="Debian"
+    tags:
+    - Debian
 
-     - name: install tree      
-       apt:
-        name: tree
-        state: present
-       tags: sssstree
+  - name: install webserver on amazan
+    yum:
+      name: "{{ webserveronamazon }}"
+      state: present
+    when: ansible_os_family =="RedHat"
+    tags:
+    - RedHat
+
+
