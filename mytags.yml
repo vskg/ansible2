@@ -1,0 +1,21 @@
+---
+ - hosts: webservers
+   become: yes
+   tasks:
+     - name: install webserver       
+       apt:
+        name: apache2
+        state: present
+       tags: apache2
+     
+     - name: install git     
+       apt:
+        name: git
+        state: present
+       tags: git
+
+     - name: install tree      
+       apt:
+        name: tree
+        state: present
+       tags: tree
