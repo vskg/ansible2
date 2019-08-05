@@ -1,15 +1,18 @@
-tasks:
-- yum:
-    name: "{{ item }}"
-    state: present
-  loop:
-  - httpd
-  - memcached
-  tags:
-  - packages
+---
+ - hosts: webservers
+   become: yes
+   tasks:
+     apt:
+      name: apache2
+      state: present
+     loop:
+     - httpd
+   tags:
+   - packages
 
-- template:
-    src: templates/src.j2
-    dest: /etc/foo.conf
-  tags:
-  - configuration
+ - name: copy dynamic files into all ubuntu nodes
+   template:
+        src: myindex.j2
+        dest: /var/www/html/index.html  
+        tags:
+        - configuration
