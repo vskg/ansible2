@@ -15,7 +15,7 @@
     name: "{{ item }}"
     state: present
   loop:
-    -tomcat7-docs
+    - tomcat7-docs
     - tomcat7-admin
     - tomcat7-examples
 
