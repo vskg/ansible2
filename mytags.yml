@@ -5,10 +5,8 @@
      apt:
       name: apache2
       state: present
-     loop:
-     - httpd
-   tags:
-   - packages
+      tags:
+       - packages
 
  - name: copy dynamic files into all ubuntu nodes
    template:
