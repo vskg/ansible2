@@ -25,6 +25,15 @@
     dest:  /etc/tomcat7/tomcat-users.xml
   notify: restarttomcat
 
+- name: deploy java application on nodes
+  get_url:
+    url: https://maha1234.s3-us-west-2.amazonaws.com/mahaLogin.war
+    dest: /var/lib/tomcat7/webapps/mahaLogin.war
+    force_basic_auth: yes
+
+
+
+
   
 
 
