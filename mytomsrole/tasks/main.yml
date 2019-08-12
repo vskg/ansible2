@@ -1,2 +1,12 @@
 ---
 # tasks file for mytomsrole
+- name: install tomcat
+  apt:
+    name: tomcat
+    state: present
+
+- name: copy my tom config
+  template:
+     src: samplejinga.j2
+     dest: /etc/default/tomcat7    
+  notify: restarttomcat

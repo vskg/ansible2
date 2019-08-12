@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  become: yes
+  tasks: 
+  - name: create ansiblenodes
+    ec2: 
+      key_name: virg
+      instance_type: t2.micro
+      image: ami-06be611faba31a2c1
+      wait: yes
+      region: us-east-1
+      group: mysg
+      count: 2
+      subnet_id: subnet-97d9fcb9
+      assign_public_ip: yes
+      instance_tags:
+        name: ansiblenodes
+      
+       
