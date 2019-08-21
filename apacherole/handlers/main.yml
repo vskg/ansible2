@@ -1,2 +1,6 @@
 ---
 # handlers file for apacherole
+- name: restart tomcat
+  service:
+     name: tomcat7
+     state: restarted
